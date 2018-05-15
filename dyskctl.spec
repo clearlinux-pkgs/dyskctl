@@ -1,6 +1,6 @@
 Name     : dyskctl
 Version  : fcc6361a8f6fb2689ae555eaec6fc8455ab289a2
-Release  : 1
+Release  : 2
 URL      : https://github.com/khenidak/dysk/archive/fcc6361a8f6fb2689ae555eaec6fc8455ab289a2.tar.gz
 Source0  : https://github.com/khenidak/dysk/archive/fcc6361a8f6fb2689ae555eaec6fc8455ab289a2.tar.gz
 Source1  : http://localhost/dysk-extra-files.tar.gz
@@ -36,9 +36,9 @@ popd
 %install
 # /builddir/build/BUILD/dysk-fcc6361a8f6fb2689ae555eaec6fc8455ab289a2/dyskctl/dyskctl
 rm -rf %{buildroot}
-install -d -p %{buildroot}%{_bindir}
-install -p -m 755 dyskctl/%{name} %{buildroot}%{_bindir}
+install -d -p %{buildroot}/usr/bin
+install -p -m 755 dyskctl/%{name} %{buildroot}/usr/bin
 
 %files
 %defattr(-,root,root,-)
-%{_bindir}/%{name}
+/usr/bin/%{name}
