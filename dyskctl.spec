@@ -1,6 +1,6 @@
 Name     : dyskctl
 Version  : fcc6361a8f6fb2689ae555eaec6fc8455ab289a2
-Release  : 2
+Release  : 3
 URL      : https://github.com/khenidak/dysk/archive/fcc6361a8f6fb2689ae555eaec6fc8455ab289a2.tar.gz
 Source0  : https://github.com/khenidak/dysk/archive/fcc6361a8f6fb2689ae555eaec6fc8455ab289a2.tar.gz
 Source1  : http://localhost/dysk-extra-files.tar.gz
@@ -17,6 +17,7 @@ Attach Azure disks in < 1 second. Attach as many as you want. Attach them where 
 %setup -q -n dysk-%{version}
 
 %build
+echo "dysk" > dysk.conf
 export GOPATH=/go AUTO_GOPATH=1
 mkdir -p /go/src/github.com/khenidak/
 ln -s /builddir/build/BUILD/dysk-%{version} /go/src/github.com/khenidak/dysk
@@ -36,9 +37,12 @@ popd
 %install
 # /builddir/build/BUILD/dysk-fcc6361a8f6fb2689ae555eaec6fc8455ab289a2/dyskctl/dyskctl
 rm -rf %{buildroot}
+install -d -p %{buildroot}/usr/lib/modules-load.d
+install -p -m 644 dysk.conf %{buildroot}/usr/lib/modules-load.d
 install -d -p %{buildroot}/usr/bin
 install -p -m 755 dyskctl/%{name} %{buildroot}/usr/bin
 
 %files
 %defattr(-,root,root,-)
 /usr/bin/%{name}
+/usr/lib/modules-load.d/dysk.conf
