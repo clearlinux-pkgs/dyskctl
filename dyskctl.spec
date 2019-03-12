@@ -40,9 +40,9 @@ rm -rf %{buildroot}
 install -d -p %{buildroot}/usr/lib/modules-load.d
 install -p -m 644 dysk.conf %{buildroot}/usr/lib/modules-load.d
 install -d -p %{buildroot}/usr/bin
-install -p -m 755 dyskctl/%{name} %{buildroot}/usr/bin
+install -p -m 755 dyskctl/dyskctl %{buildroot}/usr/bin
 
 %files
 %defattr(-,root,root,-)
-/usr/bin/%{name}
+/usr/bin/dyskctl
 /usr/lib/modules-load.d/dysk.conf
