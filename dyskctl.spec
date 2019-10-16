@@ -13,6 +13,14 @@ BuildRequires : go
 # dysk (dÄ«sk) #
 Attach Azure disks in < 1 second. Attach as many as you want. Attach them where ever you want. dysk mounts Azure disks as Linux block devices directly on VMs without dependency on the host.
 
+%package extra
+License:        AGPL-3.0 Apache-2.0 BSD-2-Clause BSD-3-Clause BSD-3-Clause-Clear GPL-2.0 GPL-3.0 LGPL-3.0 MIT MPL-2.0-no-copyleft-exception
+Summary:        dyskctl extra files
+Group    : Development/Tools
+
+%description extra
+Dyskctl extra files
+
 %prep
 %setup -q -n dysk-%{version}
 
@@ -45,4 +53,7 @@ install -p -m 755 dyskctl/dyskctl %{buildroot}/usr/bin
 %files
 %defattr(-,root,root,-)
 /usr/bin/dyskctl
+
+%files extra
+%dir /usr/lib/modules-load.d
 /usr/lib/modules-load.d/dysk.conf
