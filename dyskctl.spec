@@ -1,6 +1,6 @@
 Name     : dyskctl
 Version  : fcc6361a8f6fb2689ae555eaec6fc8455ab289a2
-Release  : 5
+Release  : 6
 URL      : https://github.com/khenidak/dysk/archive/fcc6361a8f6fb2689ae555eaec6fc8455ab289a2.tar.gz
 Source0  : https://github.com/khenidak/dysk/archive/fcc6361a8f6fb2689ae555eaec6fc8455ab289a2.tar.gz
 Source1  : http://localhost/dysk-extra-files.tar.gz
@@ -26,10 +26,10 @@ Dyskctl extra files
 
 %build
 echo "dysk" > dysk.conf
-export GOPATH=/go AUTO_GOPATH=1
-mkdir -p /go/src/github.com/khenidak/
-ln -s /builddir/build/BUILD/dysk-%{version} /go/src/github.com/khenidak/dysk
-pushd /go/src/github.com/khenidak/dysk
+export GOPATH=$HOME/go AUTO_GOPATH=1
+mkdir -p $HOME/go/src/github.com/khenidak/
+ln -s $HOME/build/BUILD/dysk-%{version} $HOME/go/src/github.com/khenidak/dysk
+pushd $HOME/go/src/github.com/khenidak/dysk
 tar xvzf %{SOURCE1}
 
 # Remove dependency on dep
