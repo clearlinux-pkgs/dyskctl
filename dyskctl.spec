@@ -1,6 +1,6 @@
 Name     : dyskctl
 Version  : fcc6361a8f6fb2689ae555eaec6fc8455ab289a2
-Release  : 6
+Release  : 7
 URL      : https://github.com/khenidak/dysk/archive/fcc6361a8f6fb2689ae555eaec6fc8455ab289a2.tar.gz
 Source0  : https://github.com/khenidak/dysk/archive/fcc6361a8f6fb2689ae555eaec6fc8455ab289a2.tar.gz
 Source1  : http://localhost/dysk-extra-files.tar.gz
@@ -39,7 +39,7 @@ sed -E -i 's/^\s+(\$Q\s+)?dep\b.*$//g' dyskctl/Makefile
 mkdir -p dyskctl/vendor/github.com/khenidak/dysk/dyskctl
 mkdir -p dyskctl/vendor/github.com/khenidak/dysk/pkg
 
-make  %{?_smp_mflags} build-cli
+make  %{?_smp_mflags} build-cli GOFLAGS='-buildmode=pie -v'
 popd
 
 %install
