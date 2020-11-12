@@ -7,7 +7,7 @@ index dd20381..fb8fa19 100644
  	$Q cp -Rf main.go vendor/github.com/khenidak/dysk/dyskctl/
  	$Q cp -Rf ../pkg/client vendor/github.com/khenidak/dysk/pkg/
 -	$Q CGO_ENABLED=0 go build .
-+	$Q go build -buildmode=pie -ldflags '-extldflags "-static-pie"' -tags netgo,osusergo .
++	$Q go build -buildmode=pie -ldflags '-linkmode external -extldflags "-static-pie"' -tags netgo,osusergo .
  
  .PHONY: deps
  deps: ## Runs `dep ensure`
