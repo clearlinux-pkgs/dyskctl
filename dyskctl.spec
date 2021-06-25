@@ -29,7 +29,7 @@ Dyskctl extra files
 
 %build
 echo "dysk" > dysk.conf
-export GOPATH=$HOME/go AUTO_GOPATH=1
+export GOPATH=$HOME/go AUTO_GOPATH=1 GO111MODULE="auto"
 mkdir -p $HOME/go/src/github.com/khenidak/
 ln -s $HOME/build/BUILD/dysk-%{version} $HOME/go/src/github.com/khenidak/dysk
 pushd $HOME/go/src/github.com/khenidak/dysk
