@@ -1,6 +1,6 @@
 Name     : dyskctl
 Version  : fcc6361a8f6fb2689ae555eaec6fc8455ab289a2
-Release  : 25
+Release  : 26
 URL      : https://github.com/khenidak/dysk/archive/fcc6361a8f6fb2689ae555eaec6fc8455ab289a2.tar.gz
 Source0  : https://github.com/khenidak/dysk/archive/fcc6361a8f6fb2689ae555eaec6fc8455ab289a2.tar.gz
 Source1  : http://localhost/dysk-extra-files.tar.gz
